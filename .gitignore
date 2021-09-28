@@ -3,10 +3,12 @@ __pycache__/
 .idea/
 .tmp/
 .vscode/
-bdd/
+dataset/
 runs/
 inference/
 *.pth
 *.pt
 *.tar
 *.tar.gz
+*.jpg
+*.png
