@@ -26,7 +26,7 @@
   
 
 ### Results
-	
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/yolop-you-only-look-once-for-panoptic-driving/traffic-object-detection-on-bdd100k)](https://paperswithcode.com/sota/traffic-object-detection-on-bdd100k?p=yolop-you-only-look-once-for-panoptic-driving)
 #### Traffic Object Detection Result
 
@@ -138,7 +138,8 @@
 │ │ ├─test.py    
 │ │ ├─train.py    
 ├─toolkits
-│ │ ├─depoly    # Deployment of model
+│ │ ├─deploy    # Deployment of model
+│ │ ├─datapre    # Generation of gt(mask) for drivable area segmentation task
 ├─weights    # Pretraining model
 ```
 
@@ -237,7 +238,7 @@ We provide two testing method.
 You can store the image or video in `--source`, and then save the reasoning result to `--save-dir`
 
 ```shell
-python tools/demo --source inference/images
+python tools/demo.py --source inference/images
 ```
 
 
@@ -247,7 +248,7 @@ python tools/demo --source inference/images
 If there are any camera connected to your computer, you can set the `source` as the camera number(The default is 0).
 
 ```shell
-python tools/demo --source 0
+python tools/demo.py --source 0
 ```
 
 
@@ -275,6 +276,18 @@ python tools/demo --source 0
 
 Our model can reason in real-time on `Jetson Tx2`, with `Zed Camera` to capture image. We use `TensorRT` tool for speeding up. We provide code for deployment and reasoning of model in  `./toolkits/deploy`.
 
+
+
+### Segmentation Label(Mask) Generation
+
+You can generate the label for drivable area segmentation task by running
+
+```shell
+python toolkits/datasetpre/gen_bdd_seglabel.py
+```
+
+
+
 #### Model Transfer
 
 Before reasoning with TensorRT C++ API, you need to transfer the `.pth` file into binary file which can be read by C++.
@@ -285,14 +298,22 @@ python toolkits/deploy/gen_wts.py
 
 After running the above command, you obtain a binary file named `yolop.wts`.
 
+
+
 #### Running Inference
 
 TensorRT needs an engine file for inference. Building an engine is time-consuming. It is convenient to save an engine file so that you can reuse it every time you run the inference. The process is integrated in `main.cpp`. It can determine whether to build an engine according to the existence of your engine file.
 
+
+
 ### Third Parties Resource  
 * YOLOP OpenCV-DNN C++ Demo: [YOLOP-opencv-dnn](https://github.com/hpc203/YOLOP-opencv-dnn) from [hpc203](https://github.com/hpc203)  
-* YOLOP ONNXRuntime C++ Demo: [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/ort/cv/yolop.cpp) from [DefTruth](https://github.com/DefTruth)  
+* YOLOP ONNXRuntime C++ Demo: [lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/yolop.cpp) from [DefTruth](https://github.com/DefTruth)  
 * YOLOP NCNN C++ Demo: [YOLOP-NCNN](https://github.com/EdVince/YOLOP-NCNN) from [EdVince](https://github.com/EdVince)  
+* YOLOP MNN C++ Demo: [YOLOP-MNN](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/mnn/cv/mnn_yolop.cpp) from [DefTruth](https://github.com/DefTruth) 
+* YOLOP TNN C++ Demo: [YOLOP-TNN](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_yolop.cpp) from [DefTruth](https://github.com/DefTruth) 	
+
+
 
 ## Citation
 
