@@ -57,7 +57,7 @@ _C.DATASET.LANEROOT = '/workspace/Disk/hdd/YOLOP/sbDataset/ll_seg_annotations'  
 _C.DATASET.DATASET = 'BddDataset'
 _C.DATASET.TRAIN_SET = 'train'
 _C.DATASET.TEST_SET = 'val'
-_C.DATASET.DATA_FORMAT = 'png'
+_C.DATASET.DATA_FORMAT = 'jpg'
 _C.DATASET.SELECT_DATA = False
 _C.DATASET.ORG_IMG_SIZE = [480, 640]
 

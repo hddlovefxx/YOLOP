@@ -257,6 +257,8 @@ def validate(epoch,config, val_loader, val_dataset, model, criterion, output_dir
             if config.TEST.PLOTS:
                 if batch_i == 0:
                     for i in range(test_batch_size):
+                        if i>=len(paths):   # 后续需要删除
+                            break
                         img_test = cv2.imread(paths[i])
                         da_seg_mask = da_seg_out[i][:, pad_h:height-pad_h, pad_w:width-pad_w].unsqueeze(0)
                         da_seg_mask = torch.nn.functional.interpolate(da_seg_mask, scale_factor=int(1/ratio), mode='bilinear')

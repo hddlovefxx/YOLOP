@@ -36,7 +36,7 @@ class BddDataset(AutoDriveDataset):
             lane_path = mask_path.replace(str(self.mask_root), str(self.lane_root))
             with open(label_path, 'r') as f:
                 label = json.load(f)
-            data = label['frames'][0]['objects']
+            data = label['frames'][0]['labels']
             data = self.filter_data(data)
             gt = np.zeros((len(data), 5))
             for idx, obj in enumerate(data):
