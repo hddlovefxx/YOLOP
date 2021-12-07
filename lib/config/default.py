@@ -50,16 +50,16 @@ _C.LOSS.LL_IOU_GAIN = 0.2 # lane line iou loss gain
 
 # DATASET related params
 _C.DATASET = CN(new_allowed=True)
-_C.DATASET.DATAROOT = '/workspace/Disk/hdd/YOLOP/dataset/images'       # the path of images folder
-_C.DATASET.LABELROOT = '/workspace/Disk/hdd/YOLOP/dataset/det_annotations'      # the path of det_annotations folder
-_C.DATASET.MASKROOT = '/workspace/Disk/hdd/YOLOP/dataset/da_seg_annotations'                # the path of da_seg_annotations folder
-_C.DATASET.LANEROOT = '/workspace/Disk/hdd/YOLOP/dataset/ll_seg_annotations'               # the path of ll_seg_annotations folder
+_C.DATASET.DATAROOT = '/workspace/Disk/hdd/YOLOP/sbDataset/images'       # the path of images folder
+_C.DATASET.LABELROOT = '/workspace/Disk/hdd/YOLOP/sbDataset/det_annotations'      # the path of det_annotations folder
+_C.DATASET.MASKROOT = '/workspace/Disk/hdd/YOLOP/sbDataset/da_seg_annotations'                # the path of da_seg_annotations folder
+_C.DATASET.LANEROOT = '/workspace/Disk/hdd/YOLOP/sbDataset/ll_seg_annotations'               # the path of ll_seg_annotations folder
 _C.DATASET.DATASET = 'BddDataset'
 _C.DATASET.TRAIN_SET = 'train'
 _C.DATASET.TEST_SET = 'val'
-_C.DATASET.DATA_FORMAT = 'jpg'
+_C.DATASET.DATA_FORMAT = 'png'
 _C.DATASET.SELECT_DATA = False
-_C.DATASET.ORG_IMG_SIZE = [720, 1280]
+_C.DATASET.ORG_IMG_SIZE = [480, 640]
 
 # training data augmentation
 _C.DATASET.FLIP = True
