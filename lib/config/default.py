@@ -5,7 +5,7 @@ from yacs.config import CfgNode as CN
 _C = CN()
 
 _C.LOG_DIR = 'runs/'
-_C.GPUS = (0,1)     
+_C.GPUS = (0,1,2)     
 _C.WORKERS = 8
 _C.PIN_MEMORY = False
 _C.PRINT_FREQ = 20
@@ -50,10 +50,10 @@ _C.LOSS.LL_IOU_GAIN = 0.2 # lane line iou loss gain
 
 # DATASET related params
 _C.DATASET = CN(new_allowed=True)
-_C.DATASET.DATAROOT = '/workspace/Disk/hdd/YOLOP/sbDataset48/images'       # the path of images folder
-_C.DATASET.LABELROOT = '/workspace/Disk/hdd/YOLOP/sbDataset48/det_annotations'      # the path of det_annotations folder
-_C.DATASET.MASKROOT = '/workspace/Disk/hdd/YOLOP/sbDataset48/da_seg_annotations'                # the path of da_seg_annotations folder
-_C.DATASET.LANEROOT = '/workspace/Disk/hdd/YOLOP/sbDataset48/ll_seg_annotations'               # the path of ll_seg_annotations folder
+_C.DATASET.DATAROOT = '/workspace/Disk/hdd/YOLOP/sbDataset48-copy/images'       # the path of images folder
+_C.DATASET.LABELROOT = '/workspace/Disk/hdd/YOLOP/sbDataset48-copy/det_annotations'      # the path of det_annotations folder
+_C.DATASET.MASKROOT = '/workspace/Disk/hdd/YOLOP/sbDataset48-copy/da_seg_annotations'                # the path of da_seg_annotations folder
+_C.DATASET.LANEROOT = '/workspace/Disk/hdd/YOLOP/sbDataset48-copy/ll_seg_annotations'               # the path of ll_seg_annotations folder
 _C.DATASET.DATASET = 'BddDataset'
 _C.DATASET.TRAIN_SET = 'train'
 _C.DATASET.TEST_SET = 'val'
