@@ -352,7 +352,7 @@ def main():
             #     best_model = False
 
         # save checkpoint model and best model
-        if rank in [-1, 0]:
+        if rank in [-1, 0] and epoch % 50==0:
             savepath = os.path.join(final_output_dir, f'epoch-{epoch}.pth')
             logger.info('=> saving checkpoint to {}'.format(savepath))
             save_checkpoint(
