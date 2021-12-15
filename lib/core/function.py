@@ -302,7 +302,8 @@ def validate(epoch,config, val_loader, val_dataset, model, criterion, output_dir
                             #print(cls)
                             label_det_pred = f'{names[int(cls)]} {conf:.2f}'
                             plot_one_box(xyxy, img_det , label=label_det_pred, color=colors[int(cls)], line_thickness=3)
-                        cv2.imwrite(save_dir+"/batch_{}_{}_det_pred.png".format(epoch,i),img_det)
+                        if epoch % 10==0: 
+                            cv2.imwrite(save_dir+"/batch_{}_{}_det_pred.png".format(epoch,i),img_det)
 
                         labels = target[0][target[0][:, 0] == i, 1:]
                         # print(labels)
@@ -315,7 +316,8 @@ def validate(epoch,config, val_loader, val_dataset, model, criterion, output_dir
                             label_det_gt = f'{names[int(cls)]}'
                             xyxy = (x1,y1,x2,y2)
                             plot_one_box(xyxy, img_gt , label=label_det_gt, color=colors[int(cls)], line_thickness=3)
-                        cv2.imwrite(save_dir+"/batch_{}_{}_det_gt.png".format(epoch,i),img_gt)
+                        if epoch % 10==0:
+                            cv2.imwrite(save_dir+"/batch_{}_{}_det_gt.png".format(epoch,i),img_gt)
 
         # Statistics per image
         # output([xyxy,conf,cls])
