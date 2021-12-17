@@ -13,3 +13,4 @@ inference/
 *.jpg
 *.png
 *.json
+*.log
