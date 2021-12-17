@@ -18,8 +18,8 @@
 # id_dict_single = {'car': 0, 'bus': 1, 'truck': 2,'train': 3}
 # id_dict = {'car': 0, 'bus': 1, 'truck': 2}
 
-id_dict = {'bag': 0, 'bottle': 1, 'rope': 2, 'badge': 3, 'book': 4, 'plastics': 5, 'box': 6}
-id_dict_single = {'bag': 0, 'bottle': 1, 'rope': 2, 'badge': 3, 'book': 4, 'plastics': 5, 'box': 6}
+id_dict = {'bag': 0, 'bottle': 1, 'rope': 2, 'badge': 3, 'book': 4, 'plastics': 5, 'box': 6,'phone':7,'umbrella':8,'wallet':9}
+id_dict_single = {'bag': 0, 'bottle': 1, 'rope': 2, 'badge': 3, 'book': 4, 'plastics': 5, 'box': 6,'phone':7,'umbrella':8,'wallet':9}
 
 def convert(size, box):
     dw = 1./(size[0])
