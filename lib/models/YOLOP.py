@@ -11,7 +11,7 @@ sys.path.append(os.getcwd())
 from lib.utils import initialize_weights
 # from lib.models.common2 import DepthSeperabelConv2d as Conv
 # from lib.models.common2 import SPP, Bottleneck, BottleneckCSP, Focus, Concat, Detect
-from lib.models.common import Conv, SPP, Bottleneck, BottleneckCSP, Focus, Concat, Detect, SharpenConv
+from lib.models.common import Conv, Conv_CBAM, SPP, Bottleneck, BottleneckCSP, Focus, Concat, Detect, SharpenConv
 from torch.nn import Upsample
 from lib.utils import check_anchor_order
 from lib.core.evaluate import SegmentationMetric
@@ -459,7 +459,7 @@ YOLOP = [
 [ -1, BottleneckCSP, [128, 128, 3]],    #4
 [ -1, Conv, [128, 256, 3, 2]],  #5
 [ -1, BottleneckCSP, [256, 256, 3]],    #6
-[ -1, Conv, [256, 512, 3, 2]],  #7
+[ -1, Conv_CBAM, [256, 512, 3, 2]],  #7
 [ -1, SPP, [512, 512, [5, 9, 13]]],     #8
 [ -1, BottleneckCSP, [512, 512, 1, False]],     #9
 [ -1, Conv,[512, 256, 1, 1]],   #10
