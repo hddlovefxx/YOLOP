@@ -453,7 +453,7 @@ MCnet_share1 = [
 YOLOP = [
 [24, 33, 42],   #Det_out_idx, Da_Segout_idx, LL_Segout_idx
 [ -1, Focus, [3, 32, 3]],   #0
-[ -1, Conv_CBAM, [32, 64, 3, 2]],    #1
+[ -1, Conv, [32, 64, 3, 2]],    #1
 [ -1, BottleneckCSP, [64, 64, 1]],  #2
 [ -1, Conv, [64, 128, 3, 2]],   #3
 [ -1, BottleneckCSP, [128, 128, 3]],    #4
