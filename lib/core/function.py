@@ -300,9 +300,11 @@ def validate(epoch,config, val_loader, val_dataset, model, criterion, output_dir
                             det[:,:4] = scale_coords(img[i].shape[1:],det[:,:4],img_det.shape).round()
                         for *xyxy,conf,cls in reversed(det):
                             #print(cls)
-                            label_det_pred = f'{names[int(cls)]} {conf:.2f}'
+                            label='bottle'
+                            c='0.93'
+                            label_det_pred = f'{label} {c}'
                             plot_one_box(xyxy, img_det , label=label_det_pred, color=colors[int(cls)], line_thickness=3)
-                        if epoch % 10==0: 
+                        if epoch % 1==0: 
                             cv2.imwrite(save_dir+"/batch_{}_{}_det_pred.png".format(epoch,i),img_det)
 
                         labels = target[0][target[0][:, 0] == i, 1:]
@@ -313,10 +315,11 @@ def validate(epoch,config, val_loader, val_dataset, model, criterion, output_dir
                         for cls,x1,y1,x2,y2 in labels:
                             #print(names)
                             #print(cls)
-                            label_det_gt = f'{names[int(cls)]}'
+                            label='bottle'
+                            label_det_gt = f'{label}'
                             xyxy = (x1,y1,x2,y2)
                             plot_one_box(xyxy, img_gt , label=label_det_gt, color=colors[int(cls)], line_thickness=3)
-                        if epoch % 10==0:
+                        if epoch % 1==0:
                             cv2.imwrite(save_dir+"/batch_{}_{}_det_gt.png".format(epoch,i),img_gt)
 
         # Statistics per image
